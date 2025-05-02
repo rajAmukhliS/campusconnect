@@ -21,6 +21,12 @@ import Emergency from 'screens/user/emergency/Emergency';
 import AdminDashboard from 'screens/admin/home/AdminDashboard';
 import ManageEvents from 'screens/admin/manage-events/ManageEvents';
 import AddEvent from 'screens/admin/add-events/AddEvent';
+import ManageForums from 'screens/admin/manage-forums/ManageForums';
+import ManageClubs from 'screens/admin/manage-club/ManageClubs';
+import AddForum from 'screens/admin/add-forum/AddForum';
+import AddClub from 'screens/admin/add-club/AddClub';
+import ManageEmergencyContacts from 'screens/admin/manage-emergency-contacts/ManageEmergencyContacts';
+import AddEmergencyContact from 'screens/admin/add-emergency-contact/AddEmergencyContact';
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const RootNavigator = () => {
@@ -49,6 +55,12 @@ export const RootNavigator = () => {
         <Stack.Screen name="AdminDashboard" component={AdminDashboard} />
         <Stack.Screen name="ManageEvents" component={ManageEvents} />
         <Stack.Screen name="AddEvent" component={AddEvent} />
+        <Stack.Screen name="ManageForums" component={ManageForums} />
+        <Stack.Screen name="ManageClubs" component={ManageClubs} />
+        <Stack.Screen name="AddForum" component={AddForum} />
+        <Stack.Screen name="AddClub" component={AddClub} />
+        <Stack.Screen name="ManageEmergencyContacts" component={ManageEmergencyContacts} />
+        <Stack.Screen name="AddEmergencyContact" component={AddEmergencyContact} />
       </Stack.Navigator>
     </SafeAreaView>
   );

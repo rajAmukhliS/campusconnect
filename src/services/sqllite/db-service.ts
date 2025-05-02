@@ -162,4 +162,89 @@ export const addEvent = async (title: string, date: string, description: string)
     await db.executeSql(`DELETE FROM events WHERE id = ?;`, [id]);
     await db.close();
   };
+
+
+  export const insertClub = async (name: string, description: string) => {
+    const db = await getDBConnection();
+    await db.executeSql(
+      `INSERT INTO clubs (name, description) VALUES (?, ?);`,
+      [name, description]
+    );
+    await db.close();
+  };
   
+  // Get all clubs
+  export const getAllClubs = async () => {
+    const db = await getDBConnection();
+    const [results] = await db.executeSql(`SELECT * FROM clubs;`);
+    const clubs = [];
+    for (let i = 0; i < results.rows.length; i++) {
+      clubs.push(results.rows.item(i));
+    }
+    await db.close();
+    return clubs;
+  };
+  
+  // Delete club by ID
+  export const deleteClubById = async (id: number) => {
+    const db = await getDBConnection();
+    await db.executeSql(`DELETE FROM clubs WHERE id = ?;`, [id]);
+    await db.close();
+  };
+  
+
+
+  // Get all emergency contacts
+export const getAllEmergencyContacts = async () => {
+  const db = await getDBConnection();
+  const result = await db.executeSql('SELECT * FROM emergency_contacts');
+  await db.close();
+  return result.rows.raw(); // Return all contacts in an array format
+};
+
+// Insert a new emergency contact
+export const insertEmergencyContact = async (name: string, phone: string, department: string) => {
+  const db = await getDBConnection();
+  await db.executeSql(
+    `INSERT INTO emergency_contacts (name, phone, department) VALUES (?, ?, ?)`,
+    [name, phone, department]
+  );
+  await db.close();
+};
+
+// Delete an emergency contact by id
+export const deleteEmergencyContactById = async (id: number) => {
+  const db = await getDBConnection();
+  await db.executeSql(`DELETE FROM emergency_contacts WHERE id = ?`, [id]);
+  await db.close();
+};
+
+// Get all forums
+export const getAllForums = async () => {
+  const db = await getDBConnection();
+  const [results] = await db.executeSql(`SELECT * FROM forums;`);
+  const forums = [];
+
+  for (let i = 0; i < results.rows.length; i++) {
+    forums.push(results.rows.item(i));
+  }
+
+  await db.close();
+  return forums;
+};
+
+// Delete forum by ID
+export const deleteForumById = async (id: number) => {
+  const db = await getDBConnection();
+  await db.executeSql(`DELETE FROM forums WHERE id = ?;`, [id]);
+  await db.close();
+};
+
+export const insertForum = async (title: string, content: string, author: string, date: string) => {
+  const db = await getDBConnection();
+  await db.executeSql(
+    `INSERT INTO forums (title, content, author, date) VALUES (?, ?, ?, ?);`,
+    [title, content, author, date]
+  );
+  await db.close();
+};

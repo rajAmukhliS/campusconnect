@@ -16,5 +16,11 @@ type RootStackParamList = {
   AdminDashboard: undefined;
   ManageEvents: undefined;
   AddEvent:undefined;
+  AddClub:undefined;
+  ManageClubs: undefined;
+  ManageForums: undefined;
+  AddForum:undefined;
+  ManageEmergencyContacts: undefined;
+  AddEmergencyContact: undefined;
 };
 export default RootStackParamList;

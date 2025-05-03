@@ -22,5 +22,10 @@ type RootStackParamList = {
   AddForum:undefined;
   ManageEmergencyContacts: undefined;
   AddEmergencyContact: undefined;
+  ManageStudentPortal: undefined;
+  ViewStudentPortal:undefined;
+  ManageCampusMap: undefined;
+  AdminNotifications : undefined;
+  
 };
 export default RootStackParamList;

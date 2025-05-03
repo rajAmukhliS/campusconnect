@@ -13,20 +13,24 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#222',
   },
-  button: {
-    backgroundColor: '#007bff',
+
+  // Add Button Styles
+  addButton: {
+    backgroundColor: '#28a745',
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 8,
     alignItems: 'center',
     marginBottom: 20,
   },
-  buttonText: {
+  addButtonText: {
     color: '#fff',
     fontSize: 16,
     fontWeight: '600',
   },
-  card: {
+
+  // Item Styles
+  item: {
     backgroundColor: '#fff',
     padding: 15,
     marginBottom: 15,
@@ -35,18 +39,28 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 3,
+    elevation: 2,
   },
-  cardTitle: {
+  itemText: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '600',
     color: '#333',
     marginBottom: 6,
   },
-  deleteText: {
-    color: '#d11a2a',
-    fontWeight: 'bold',
+
+  // Delete Button Styles
+  deleteButton: {
     marginTop: 10,
+    backgroundColor: '#dc3545',
+    paddingVertical: 8,
+    paddingHorizontal: 14,
+    borderRadius: 6,
+    alignItems: 'center',
+  },
+  deleteButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 14,
   },
 });
 

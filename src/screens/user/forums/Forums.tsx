@@ -1,38 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import AppHeader from '../../../components/atoms/headers';
 import styles from './styles';
-
-const forums = [
-  {
-    id: '1',
-    title: 'General Discussion',
-    latest: 'Anyone attending the seminar tomorrow?',
-    time: '2h ago',
-  },
-  {
-    id: '2',
-    title: 'Assignments Help',
-    latest: 'Need help with the DBMS project.',
-    time: '4h ago',
-  },
-  {
-    id: '3',
-    title: 'Events & Activities',
-    latest: 'Coding bootcamp was amazing!',
-    time: '1d ago',
-  },
-];
+import { getAllForums } from '../../../services/sqllite/db-service';
 
 const Forums = ({ navigation }: any) => {
+  const [forums, setForums] = useState([]);
+
+  const fetchForums = async () => {
+    try {
+      console.log('Fetching forums...');
+      const data = await getAllForums();
+      console.log('Forums fetched:', data);
+      setForums(data);
+    } catch (error) {
+      console.error('Error fetching forums:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchForums();
+  }, []);
+
   const renderItem = ({ item }: any) => (
     <TouchableOpacity
       style={styles.card}
       onPress={() => navigation.navigate('ForumDetail', { forumId: item.id })}
     >
       <Text style={styles.title}>{item.title}</Text>
-      <Text style={styles.latest}>{item.latest}</Text>
-      <Text style={styles.time}>{item.time}</Text>
+      <Text style={styles.latest}>{item.content}</Text>
+      <Text style={styles.time}>{'2h ago'}</Text>
     </TouchableOpacity>
   );
 
@@ -41,9 +38,10 @@ const Forums = ({ navigation }: any) => {
       <AppHeader title="Discussion Forums" />
       <FlatList
         data={forums}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()}
         contentContainerStyle={styles.list}
         renderItem={renderItem}
+        ListEmptyComponent={<Text style={{ textAlign: 'center', marginTop: 20 }}>No forums available.</Text>}
       />
     </View>
   );

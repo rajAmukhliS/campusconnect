@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native';
 import AppHeader from '../../../components/atoms/headers';
 import styles from './styles';
-
-const locations = [
-  { id: '1', name: 'Library', description: 'Main campus library, 3 floors of study space.' },
-  { id: '2', name: 'Cafeteria', description: 'Affordable meals and snacks.' },
-  { id: '3', name: 'Lab Building', description: 'Computer labs and engineering labs.' },
-  { id: '4', name: 'Lecture Hall A', description: 'Large hall for major lectures.' },
-];
+import { getCampusMapItems } from '../../../services/sqllite/db-service';
 
 const CampusMap = () => {
+  const [locations, setLocations] = useState([]);
+
+  const fetchLocations = async () => {
+    console.log('Fetching campus map items...');
+    const data = await getCampusMapItems();
+    console.log('Received locations:', data);
+    setLocations(data);
+  };
+
+  useEffect(() => {
+    fetchLocations();
+  }, []);
+
   const renderItem = ({ item }: any) => (
     <TouchableOpacity style={styles.card}>
       <Text style={styles.locationName}>{item.name}</Text>
@@ -22,15 +29,16 @@ const CampusMap = () => {
     <View style={styles.container}>
       <AppHeader title="Campus Map" />
       <Image
-        source={require('../../../assets/images/logo.jpeg')} // Add a placeholder image in assets
+        source={require('../../../assets/images/logo.jpeg')}
         style={styles.mapImage}
         resizeMode="contain"
       />
       <FlatList
         data={locations}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={renderItem}
         contentContainerStyle={styles.list}
+        ListEmptyComponent={<Text>No locations found.</Text>}
       />
     </View>
   );

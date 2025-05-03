@@ -27,6 +27,10 @@ import AddForum from 'screens/admin/add-forum/AddForum';
 import AddClub from 'screens/admin/add-club/AddClub';
 import ManageEmergencyContacts from 'screens/admin/manage-emergency-contacts/ManageEmergencyContacts';
 import AddEmergencyContact from 'screens/admin/add-emergency-contact/AddEmergencyContact';
+import ManageStudentPortal from 'screens/admin/manage-student-portal/ManageStudentPortal';
+import ViewStudentPortal from 'screens/admin/view-student-portal/ViewStudentPortal';
+import ManageCampusMap from 'screens/admin/manage-campus-map/ManageCampusMap';
+import AdminNotifications from 'screens/admin/admin-notifications/AdminNotifications';
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const RootNavigator = () => {
@@ -61,6 +65,11 @@ export const RootNavigator = () => {
         <Stack.Screen name="AddClub" component={AddClub} />
         <Stack.Screen name="ManageEmergencyContacts" component={ManageEmergencyContacts} />
         <Stack.Screen name="AddEmergencyContact" component={AddEmergencyContact} />
+        <Stack.Screen name="ManageStudentPortal" component={ManageStudentPortal} />
+        <Stack.Screen name="ViewStudentPortal" component={ViewStudentPortal} />
+        <Stack.Screen name="ManageCampusMap" component={ManageCampusMap} />
+        <Stack.Screen name="AdminNotifications" component={AdminNotifications} />
+
       </Stack.Navigator>
     </SafeAreaView>
   );

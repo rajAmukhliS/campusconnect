@@ -35,6 +35,14 @@ const AdminDashboard = () => {
       <TouchableOpacity style={styles.card} onPress={() => handleNavigate('ManageEvents')}>
         <Text style={styles.cardText}>Manage Events</Text>
       </TouchableOpacity>
+      
+      <TouchableOpacity style={styles.card} onPress={() => handleNavigate('ViewStudentPortal')}>
+        <Text style={styles.cardText}>Manage Student Portal</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.card} onPress={() => handleNavigate('ManageCampusMap')}>
+        <Text style={styles.cardText}>Manage Campus Map</Text>
+      </TouchableOpacity>
 
       <TouchableOpacity style={styles.card} onPress={() => handleNavigate('ManageForums')}>
         <Text style={styles.cardText}>Manage Forums</Text>
@@ -46,6 +54,10 @@ const AdminDashboard = () => {
 
       <TouchableOpacity style={styles.card} onPress={() => handleNavigate('ManageEmergencyContacts')}>
         <Text style={styles.cardText}>Manage Emergency Contacts</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.card} onPress={() => handleNavigate('AdminNotifications')}>
+        <Text style={styles.cardText}>Admin Notifications</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={[styles.card, { backgroundColor: '#ff4d4d' }]} onPress={handleLogout}>

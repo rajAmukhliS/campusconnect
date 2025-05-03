@@ -12,44 +12,65 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     textAlign: 'center',
   },
-  addButton: {
+
+  // Button for "Add Forum"
+  button: {
     backgroundColor: '#007bff',
     paddingVertical: 12,
     borderRadius: 8,
     alignItems: 'center',
     marginBottom: 20,
   },
-  addButtonText: {
+  buttonText: {
     color: '#fff',
     fontSize: 16,
+    fontWeight: '600',
   },
-  eventItem: {
+
+  // Card for each forum item
+  card: {
     backgroundColor: '#fff',
-    padding: 15,
-    borderRadius: 8,
+    padding: 16,
+    borderRadius: 10,
     marginBottom: 15,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 3,
+    // flexDirection:'row',justifyContent:'space-between'
   },
-  title: {
-    fontSize: 16,
+  cardTitle: {
+    fontSize: 18,
     fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 8,
   },
-  date: {
-    fontSize: 14,
+  content: {
+    fontSize: 15,
     color: '#555',
+    marginBottom: 6,
   },
-  description: {
+  author: {
     fontSize: 14,
+    fontStyle: 'italic',
     color: '#777',
-    marginTop: 5,
+    marginBottom: 10,
   },
-  delete: {
-    color: 'red',
+  deleteButtonText: {
+    color: '#fff',
     fontWeight: 'bold',
-    marginTop: 10,
+    fontSize: 14,
   },
+  deleteButton: {
+    marginTop: 10,
+    backgroundColor: '#dc3545',
+    borderRadius: 6,
+    alignItems: 'center',
+    padding:10,
+  },
+
 });
+
 
 export default styles;

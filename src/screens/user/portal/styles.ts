@@ -8,6 +8,30 @@ export default StyleSheet.create({
   content: {
     padding: 20,
   },
+  inputSection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  input: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    padding: 8,
+    marginRight: 10,
+  },
+  button: {
+    backgroundColor: '#007bff',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  
   section: {
     backgroundColor: '#fff',
     padding: 16,
